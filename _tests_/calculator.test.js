@@ -2,20 +2,23 @@ import { TestScheduler } from "jest";
 import Age from "../src/js/calculator.js";
 
 
-describe ("New Age", () => {
-  test("should return users age in Earth years", () => {
-    const earthAge = new Age("41", "Female", "Yes", "Bad", "Providence");
-    expect(earthling.earthAge).toEqual("41");
-    expect(earthling.gender).toEqual("Female");
-    expect(earthling.exercise).toEqual("Yes");
-    expect(earthling.diet).toEqual("Bad");
-    expect(earthling.healthCare).toEqual("Providence");
+describe ("Age", () => {
+  test("should return users Earth age", () => {
+    let humanAge = new Age("41");
+    expect(humanAge instanceof Age);
   });
 
-  test("should return users Earth age in Mercury years", () => {
-    const mercury = new Age();
-    expect(mercury.age).toEqual(170);
-  });
-})
+test("should return the users age in seconds", () => {
+  let secondsAge = new Age("1");
+  expect(secondsAge.ageInSeconds()).toEqual(31536000);
+});
+
+test("should calculate users age in Mercury years", () => {
+  let humanAge = new Age("41");
+  expect(humanAge.ageMercury()).toEqual(170);
+});
+
+});
+
 
 
