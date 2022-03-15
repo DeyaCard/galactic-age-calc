@@ -1,22 +1,29 @@
-export default class Age {
-  constructor(earthAge, gender, exercise, diet, healthCare) {
-    this.earthAge = earthAge;
-    this.gender = gender;
-    this.exercise = exercise;
-    this.diet = diet;
-    this.healthCare = healthCare;
+export class Age {
+  constructor(age, expectancy) {
+    this.age = age;
+    this.expectancy = expectancy;
   }
 
-  earthYears() {
-    let earthAge =  this.earthAge();
-    return earthYears;
-    console.log(earthYears);
+  ageInSeconds() {
+    const ageInSeconds = this.age * 365 * 24 * 60 * 60;
+    return ageInSeconds;
   }
 
-  mercuryYears() {
-    let mercuryAge = Math.round(this.earthYears() /.24);
-    return mercuryAge;
+  lifeExpectancy() {
+    const userLifeExpectancy = this.expectancy - this.age;
+    return Math.ceil(userLifeExpectancy);
   }
+
+  ageMercury() {
+    const mercuryAge = this.age / 0.24;
+    return Math.floor(mercuryAge);
+  }
+
+  lifeExpectancyMercury() {
+    const mercuryExpectancy = this.expectancy / 0.24;
+    return Math.ceil(mercuryExpectancy - this.ageMercury());
+  }
+
 
 
 
